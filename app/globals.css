@@ -1,0 +1,270 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fff9f5;
+  --foreground: #171717;
+
+  --primary: #ff5a36;
+  --primary-dark: #e84322;
+  --primary-soft: #fff0eb;
+
+  --yellow: #ffc857;
+  --teal: #35b9c8;
+  --green: #20b486;
+  --purple: #8b5cf6;
+
+  --card: #ffffff;
+  --muted: #6b6b6b;
+  --border: #eee5df;
+
+  --dark: #171717;
+  --dark-soft: #242424;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-soft: var(--primary-soft);
+
+  --color-yellow: var(--yellow);
+  --color-teal: var(--teal);
+  --color-green: var(--green);
+  --color-purple: var(--purple);
+
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+
+  --color-dark: var(--dark);
+  --color-dark-soft: var(--dark-soft);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ================================
+   BASE
+================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(
+      circle at 90% 5%,
+      rgba(255, 200, 87, 0.14),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 5% 25%,
+      rgba(255, 90, 54, 0.08),
+      transparent 25%
+    ),
+    var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+input::placeholder {
+  color: #a3a3a3;
+}
+
+/* ================================
+   SELECTION
+================================ */
+
+::selection {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+/* ================================
+   SCROLLBAR
+================================ */
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5eee9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d9c7bd;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* ================================
+   MARKETORA EFFECTS
+================================ */
+
+.market-glow {
+  box-shadow:
+    0 20px 60px rgba(255, 90, 54, 0.12),
+    0 8px 24px rgba(23, 23, 23, 0.05);
+}
+
+.soft-card {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(238, 229, 223, 0.9);
+  box-shadow:
+    0 10px 35px rgba(23, 23, 23, 0.06);
+}
+
+.orange-gradient {
+  background: linear-gradient(
+    135deg,
+    #ff5a36 0%,
+    #ff7048 45%,
+    #e84322 100%
+  );
+}
+
+.warm-gradient {
+  background: linear-gradient(
+    135deg,
+    #fff4df 0%,
+    #fff9f5 50%,
+    #ffece5 100%
+  );
+}
+
+.dark-gradient {
+  background: linear-gradient(
+    135deg,
+    #171717 0%,
+    #252525 55%,
+    #30251f 100%
+  );
+}
+
+/* ================================
+   FLOATING ANIMATION
+================================ */
+
+@keyframes marketFloat {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+.market-float {
+  animation: marketFloat 5s ease-in-out infinite;
+}
+
+.market-float-slow {
+  animation: marketFloat 7s ease-in-out infinite;
+}
+
+/* ================================
+   SHINE EFFECT
+================================ */
+
+@keyframes shine {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-effect::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.28),
+    transparent
+  );
+  transform: translateX(-120%);
+  animation: shine 4s infinite;
+}
+
+/* ================================
+   HOVER
+================================ */
+
+.market-hover {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.market-hover:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 18px 40px rgba(23, 23, 23, 0.1);
+}
+
+/* ================================
+   REDUCED MOTION
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 640px) {
+  body {
+    overflow-x: hidden;
+  }
+}
