@@ -17,7 +17,7 @@ import {
 import { useWishlist } from "@/context/WishlistContext";
 import { useCart } from "@/context/CartContext";
 
-const API_URL = "http://localhost:5000/api/products";
+const API_URL = "${API_URL}/api/products";
 
 const categories = [
   "All Categories",

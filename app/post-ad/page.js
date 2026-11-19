@@ -12,7 +12,7 @@ import {
   XCircle,
 } from "lucide-react";
 
-const API = "http://localhost:5000/api/products";
+const API = "${API_URL}/api/products";
 
 const categories = [
   "Mobiles",
